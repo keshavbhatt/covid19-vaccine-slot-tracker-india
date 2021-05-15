@@ -58,7 +58,7 @@ fi
 
 echo $date;
 
-out=$(curl --silent 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode='$pin'&date='$dateStr'' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36' -H 'referer: https://www.cowin.gov.in/' -H 'origin: https://www.cowin.gov.in' -H 'authority: cdn-api.co-vin.in'   --compressed);
+out=$(curl --silent 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode='$pin'&date='$dateStr''  -H 'authority: cdn-api.co-vin.in'   -H 'pragma: no-cache'   -H 'cache-control: no-cache'   -H 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"'   -H 'accept: application/json, text/plain, */*'   -H 'dnt: 1'   -H 'sec-ch-ua-mobile: ?0'   -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36'   -H 'origin: https://www.cowin.gov.in'   -H 'sec-fetch-site: cross-site'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-dest: empty'   -H 'referer: https://www.cowin.gov.in/'   -H 'accept-language: en-US,en;q=0.9,hi-IN;q=0.8,hi;q=0.7' --compressed );
 
 OUTPUT_VALID=false;
 VALID_JSON=false;
