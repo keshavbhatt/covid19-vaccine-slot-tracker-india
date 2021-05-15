@@ -2,7 +2,7 @@
 
 Help()
 {
-   # Display Help
+   # display help
    echo "Get datewise COVID vaccination sessions held in India, by area PINCODE."
    echo
    echo "Syntax: $0 <date> <area-pin-code>"
@@ -13,7 +13,7 @@ Help()
 
 while getopts ":h" option; do
    case $option in
-      h) # display Help
+      h) # display help
          Help
          exit;;
    esac
@@ -50,4 +50,6 @@ fi
 echo $date;
 
 out=$(curl --silent 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode='$pin'&date='$dateStr'' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36'   --compressed);
-echo "$out" | jq '.centers[].sessions' ;
+echo "$out" | jq ; 
+# use jq selectors like below to extract specified data from output
+#'.centers[].sessions' ;
