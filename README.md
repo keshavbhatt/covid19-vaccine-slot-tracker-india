@@ -30,10 +30,16 @@ Where `date` is passed in any format that the `date` command accept see [example
 To, see information about various covid vaccination centres for pin code 246149 for Today: 
 
     ./app  $(date +'today') 246149
+or
+
+    ./app  today 246149
 
 To, see information about various covid vaccination centres for pin code 246149 for tomorrow: 
 
     ./app  $(date +'tomorrow') 246149
+or
+
+    ./app  tomorrow 246149
 
 To, see information various covid vaccination centres for pin code 246149 of specified date i.e, of 2021-05-16 :
 
@@ -47,4 +53,3 @@ I quickly assembled and rolled this in few hours, am no BASH expert. so looking 
 **Features I am wishing to add:**
 
  - Ability to run this script or a separate script as CRON job and notify user about the availability of slot after set interval using `notify-send`? etc.
-
