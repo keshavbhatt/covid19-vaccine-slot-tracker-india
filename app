@@ -58,12 +58,12 @@ fi
 
 echo $date;
 
-out=$(curl --silent 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode='$pin'&date='$dateStr'' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36'   --compressed);
+out=$(curl --silent 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode='$pin'&date='$dateStr'' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36' -H 'referer: https://www.cowin.gov.in/' -H 'origin: https://www.cowin.gov.in' -H 'authority: cdn-api.co-vin.in'   --compressed);
 
 OUTPUT_VALID=false;
 VALID_JSON=false;
 #check if output is a valid json
-echo "$out" | jq -e '.' >/dev/null 2>&1 && VALID_JSON=ture || VALID_JSON=false;
+echo "$out" | jq -e '.' >/dev/null 2>&1 && VALID_JSON=true || VALID_JSON=false;
 
 if [ $VALID_JSON = true ]; then
   #check if contains centers
