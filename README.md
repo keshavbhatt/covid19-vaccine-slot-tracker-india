@@ -37,7 +37,7 @@ To, see information various covid vaccination centres for pin code 246149 of spe
 ## What else could be done
 
 The script is in early development stage, please contribute to bring more features. 
-I quickly assembled and rolled this in few hours of time as am not a pro BASH expert. so am looking for contributors.
+I quickly assembled and rolled this in few hours, am no BASH expert. so looking forward for contributors.
 
 **Features I am wishing to add:**
 
