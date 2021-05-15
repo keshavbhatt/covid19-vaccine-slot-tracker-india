@@ -6,8 +6,9 @@ This bash script takes Date and Area pin code as Input and shows various informa
 > do not allow access from outside India.
 
 ## Requirements:
-`jq`
-Use `sudo apt install jq -y` to install.
+
+ - jq (`sudo apt install jq`)
+ - curl (`sudo apt install curl`)
 
 ## How to Use:
 
