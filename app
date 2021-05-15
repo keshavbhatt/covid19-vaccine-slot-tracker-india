@@ -1,5 +1,14 @@
 #!/bin/bash
 
+cecho(){
+    RED="\033[0;31m"
+    GREEN="\033[0;32m"
+    YELLOW="\033[1;33m"
+    NC="\033[0m" # No Color
+
+    printf "${!1}${2} ${NC}\n"
+}
+
 Help()
 {
    # display help
@@ -50,6 +59,27 @@ fi
 echo $date;
 
 out=$(curl --silent 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode='$pin'&date='$dateStr'' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36'   --compressed);
-echo "$out" | jq ; 
-# use jq selectors like below to extract specified data from output
+
+OUTPUT_VALID=false;
+VALID_JSON=false;
+#check if output is a valid json
+echo "$out" | jq -e '.' >/dev/null 2>&1 && VALID_JSON=ture || VALID_JSON=false;
+
+if [ $VALID_JSON = true ]; then
+  #check if contains centers
+  OUTPUT_VALID=$(echo "$out" | jq '. | contains({"centers"})');
+  if [ $OUTPUT_VALID ];then
+    echo "$out" | jq ;
+  else
+    cecho "RED" "No centres found, dumping raw output:";
+    echo
+    echo "$out" | jq ;
+  fi  
+else
+  cecho "RED" "Invalid output, cannot parse! dumping raw output:";
+  echo
+  echo "$out";
+fi
+  
+# use jq selectors like below to extract specified data from output, for more help (https://stedolan.github.io/jq/manual/)
 #'.centers[].sessions' ;
