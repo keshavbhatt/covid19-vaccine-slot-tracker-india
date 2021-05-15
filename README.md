@@ -1,5 +1,9 @@
-# covid19-vaccine-slot-radar
+# Covid19 Vaccine slot availability tracker for India
+
 This bash script takes Date and Area pin code as Input and shows various information about vaccination centre available at the given location
+
+> NOTE: This script will work only with Indian IPs, as Cowin API server
+> do not allow access from outside India.
 
 ## How to Use:
 
@@ -38,3 +42,4 @@ I quickly assembled and rolled this in few hours of time as am not a pro BASH ex
 **Features I am wishing to add:**
 
  - Ability to run this script or a separate script as CRON job and notify user about the availability of slot after set interval using `notify-send`? etc.
+
