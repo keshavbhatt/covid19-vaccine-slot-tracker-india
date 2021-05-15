@@ -5,6 +5,10 @@ This bash script takes Date and Area pin code as Input and shows various informa
 > NOTE: This script will work only with Indian IPs, as Cowin API server
 > do not allow access from outside India.
 
+## Requirements:
+`jq`
+Use `sudo apt install jq -y` to install.
+
 ## How to Use:
 
 The script takes two arguments:  `<date> <area-pin-code>`
